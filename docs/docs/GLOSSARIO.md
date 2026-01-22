@@ -1,0 +1,24 @@
+# Glossario
+
+- Terminale: finestra dove scrivi comandi (testo) per controllare il computer.
+- Shell: il “programma” che legge i comandi (bash / zsh).
+- Prompt: la riga pronta a ricevere comandi (es: `giuseppeamadio$`).
+- Path (percorso): indirizzo di un file/cartella (es: `~/Projects/learning-lab`).
+- `cd`: change directory = entra in una cartella.
+- `ls`: list = mostra i file.
+- Repo (repository): cartella “speciale” con Git attivo dentro.
+- Git: sistema per versionare (storia) dei file.
+- Commit: una “foto” del progetto in un momento preciso.
+- Message: descrizione del commit (importante, spiega il perché).
+- Branch: linea di sviluppo (di solito `main`).
+- Remote: repo online collegato (di solito `origin`).
+- `origin`: nome standard del remote (GitHub).
+- Push: mandi commit dal Mac a GitHub.
+- Pull: prendi commit da GitHub al Mac.
+- Upstream: branch remoto “di riferimento” per push/pull (es: origin/main).
+- Merge/Rebase: modi diversi di unire storie (rebase = storia più lineare).
+- Markdown: testo con formattazione semplice (README, .md).
+- HTML: struttura di una pagina web.
+- CSS: stile grafico della pagina.
+- Tailwind: “CSS a classi”: scrivi classi come `text-xl`, `p-6` per lo stile.
+- CDN: carichi una libreria via internet (come Tailwind via `<script ...>`).
