@@ -1,0 +1,39 @@
+<!-- about.html -->
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="m-0 min-h-screen bg-black">
+    <!-- HEAD: immagine serpente lunga e poco alta -->
+    <header class="w-full">
+      <!-- Sostituisci il path con la tua immagine -->
+      <img
+        src="./img/serpente-banner.jpg"
+        alt="Serpente"
+        class="h-24 w-full object-cover"
+        loading="eager"
+      />
+    </header>
+
+    <!-- BODY: immagine tutto schermo (full viewport) -->
+    <main class="relative min-h-[calc(100vh-6rem)]">
+      <!-- Sostituisci il path con la tua immagine -->
+      <img
+        src="./img/loki-colpisce-shamrock-martello.jpg"
+        alt="Loki di One Piece colpisce Shamrock con un martello"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+
+      <!-- overlay opzionale leggero per contrasto (puoi rimuoverlo) -->
+      <div class="absolute inset-0 bg-black/10"></div>
+    </main>
+
+    <!-- FOOT: niente -->
+  </body>
+</html>
