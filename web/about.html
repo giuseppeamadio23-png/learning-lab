@@ -9,11 +9,9 @@
   </head>
 
   <body class="m-0 min-h-screen bg-black text-white">
-    <!-- HEADER: banner -->
     <header class="w-full">
-      <!-- Banner image (above-the-fold) -->
       <img
-        src="img/serpente-banner.jpg"
+        src="./img/serpente-banner.jpg"
         alt="Banner con serpente"
         class="w-full h-24 object-cover"
         loading="eager"
@@ -23,31 +21,23 @@
       />
     </header>
 
-    <!-- MAIN: full-viewport hero image -->
     <main class="relative min-h-[calc(100vh-6rem)]">
-      <picture>
-        <source srcset="img/loki-colpisce-shamrock-martello.webp" type="image/webp" />
-        <img
-          src="img/loki-colpisce-shamrock-martello.jpg"
-          alt="Loki colpisce Shamrock"
-          class="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
-          decoding="async"
-          width="1920"
-          height="1080"
-        />
-      </picture>
+      <img
+        src="./img/loki-colpisce-shamrock-martello.jpg"
+        alt="Loki colpisce Shamrock"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+        decoding="async"
+        width="1920"
+        height="1080"
+      />
 
-      <!-- optional overlay for contrast -->
       <div class="absolute inset-0 bg-black/10" aria-hidden="true"></div>
 
-      <!-- content on top of the hero (keeps text readable) -->
       <div class="relative z-10 p-6 max-w-4xl mx-auto text-center">
         <h1 class="text-3xl md:text-5xl font-bold">About</h1>
         <p class="mt-4 text-lg">Breve descrizione qui. Sostituisci con il tuo testo.</p>
       </div>
     </main>
-
-    <!-- FOOTER: intentionally empty -->
   </body>
 </html>
