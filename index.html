@@ -1,85 +1,282 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Lab - Giuseppe</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>i show space</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-zinc-950 text-zinc-100">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur">
+<div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+<a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
+<span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10">🧪</span>
+<span>spaceeeeeee</span>
+</a>
+<nav class="flex items-center gap-2 text-sm">
+<a class="rounded-lg px-3 py-2 hover:bg-white/10" href="/">Home</a>
+<a class="rounded-lg px-3 py-2 hover:bg-white/10" href="web/about.html">About</a>
+<a class="rounded-lg px-3 py-2 hover:bg-white/10" href="web/contact.html">Contact</a>
+<a class="rounded-lg bg-white px-3 py-2 text-zinc-900 hover:bg-zinc-200" href="docs/PERCORSO.md">Percorso</a>
+</nav>
+</div>
+</header>
+<main>
+  <!-- Fullscreen Solar Scene -->
+  <section class="relative h-[calc(100vh-64px)] w-full overflow-hidden">
+    <!-- Background image (fullscreen) -->
+    <div
+      class="absolute inset-0 bg-zinc-950"
+      style="
+        background-image:
+          radial-gradient(1200px 700px at 70% 30%, rgba(99,102,241,.18), transparent 60%),
+          radial-gradient(900px 600px at 20% 80%, rgba(16,185,129,.12), transparent 55%),
+          url('assets/space/solar-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: saturate(1.2) contrast(1.05);
+      "
+      aria-hidden="true"
+    ></div>
 
-  <body class="min-h-screen bg-gray-50 text-gray-900">
-    <header class="max-w-5xl mx-auto px-6 py-10">
-      <nav class="flex items-center justify-between">
-        <div class="text-lg font-semibold">Learning Lab</div>
-        <div class="flex gap-3">
-          <a class="text-sm hover:underline" href="#projects">Progetti</a>
-          <a class="text-sm hover:underline" href="#contact">Contatti</a>
-        </div>
-      </nav>
+    <!-- Dark overlay to keep it extra deep -->
+    <div class="absolute inset-0 bg-zinc-950/55" aria-hidden="true"></div>
 
-      <section class="mt-12">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
-          Dal caos al codice, un progetto alla volta.
-        </h1>
-        <p class="mt-4 text-lg leading-relaxed text-gray-700 max-w-2xl">
-          Sto imparando sviluppo web, automazioni e AI. Qui pubblico mini-progetti
-          reali e miglioramenti continui.
+    <!-- Stars (simple) -->
+    <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"
+      style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 42px 42px;">
+    </div>
+
+    <!-- Content layer -->
+    <div class="relative mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4">
+      <!-- Title / hint -->
+      <div class="mb-6 max-w-xl">
+        <p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200">
+          🪐 Hover / click sui pianeti
         </p>
+        <h1 class="mt-4 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+          I Show Space
+        </h1>
+        <p class="mt-3 text-zinc-200/80">
+          Passa il mouse su un pianeta (o usa TAB) per “sbloccare” la faccia associata.
+        </p>
+      </div>
 
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <a
-            class="inline-flex justify-center rounded-xl bg-black text-white px-5 py-3 text-sm font-semibold hover:bg-gray-800"
-            href="#projects"
-          >
-            Vedi progetti
-          </a>
-          <a
-            class="inline-flex justify-center rounded-xl border border-gray-300 px-5 py-3 text-sm font-semibold hover:bg-white"
-            href="https://github.com/giuseppeamadio23-png/learning-lab"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Repo su GitHub
-          </a>
+      <!-- Solar system canvas -->
+      <div class="relative h-[60vh] w-full">
+        <!-- Sun glow (optional focal point) -->
+        <div class="absolute left-[10%] top-1/2 h-48 w-48 -translate-y-1/2 rounded-full"
+             style="background: radial-gradient(circle at 30% 30%, rgba(250,204,21,.95), rgba(244,63,94,.25), transparent 70%);">
         </div>
-      </section>
-    </header>
 
-    <main class="max-w-5xl mx-auto px-6 pb-16">
-      <section id="projects" class="mt-8">
-        <h2 class="text-2xl font-bold">Progetti</h2>
+        <!-- Info Panel (updates on hover/focus) -->
+        <aside
+          id="planetPanel"
+          class="pointer-events-none absolute right-0 top-0 w-full max-w-md translate-y-2 opacity-0 transition duration-200 ease-out md:top-6"
+          aria-hidden="true"
+        >
+          <div class="rounded-3xl border border-white/10 bg-zinc-950/70 p-4 backdrop-blur md:p-5">
+            <div class="flex items-center gap-4">
+              <div class="h-16 w-16 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                <img id="planetFace" src="" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p id="planetName" class="text-sm text-zinc-300">Pianeta</p>
+                <h2 id="planetPerson" class="text-lg font-semibold tracking-tight">—</h2>
+                <p id="planetTag" class="mt-1 text-xs text-zinc-400">—</p>
+              </div>
+            </div>
 
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-          <article class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h3 class="font-semibold">CLI: Text → Summary Markdown</h3>
-            <p class="mt-2 text-sm text-gray-700">
-              Uno script Python che genera un report .summary.md da file .txt
-              (supporta più file e flag --top).
-            </p>
-            <p class="mt-3 text-xs text-gray-500">Cartella: <code>cli/</code></p>
-          </article>
+            <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-zinc-300">
+              <span class="text-zinc-200">Tip:</span> puoi cambiare associazioni e immagini nel JS in fondo.
+            </div>
+          </div>
+        </aside>
 
-          <article class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h3 class="font-semibold">Web: Landing Tailwind</h3>
-            <p class="mt-2 text-sm text-gray-700">
-              Questa pagina è costruita solo con Tailwind utilities: layout, spacing,
-              responsive e hover.
-            </p>
-            <p class="mt-3 text-xs text-gray-500">Cartella: <code>web/</code></p>
-          </article>
-        </div>
-      </section>
+        <!-- Planets (buttons) -->
+        <!-- Each planet is a button for accessibility (hover + focus) -->
+        <button
+          class="planet absolute left-[28%] top-[52%] h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8 65%, rgba(0,0,0,.6));"
+          data-planet="mercury"
+          aria-label="Mercurio"
+          type="button"
+        ></button>
 
-      <section id="contact" class="mt-12">
-        <h2 class="text-2xl font-bold">Contatti</h2>
-        <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-          <p class="text-sm text-gray-700">
-            GitHub: <a class="underline" href="https://github.com/giuseppeamadio23-png" target="_blank" rel="noreferrer">giuseppeamadio23-png</a>
-          </p>
-          <p class="mt-2 text-sm text-gray-700">Email: giuseppe.amadio23@gmail.com</p>
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+        <button
+          class="planet absolute left-[36%] top-[40%] h-11 w-11 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #fbbf24, #d97706 65%, rgba(0,0,0,.6));"
+          data-planet="venus"
+          aria-label="Venere"
+          type="button"
+        ></button>
+
+        <button
+          class="planet absolute left-[46%] top-[55%] h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #34d399, #0ea5e9 55%, rgba(0,0,0,.65));"
+          data-planet="earth"
+          aria-label="Terra"
+          type="button"
+        ></button>
+
+        <button
+          class="planet absolute left-[58%] top-[46%] h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #fb7185, #b91c1c 65%, rgba(0,0,0,.65));"
+          data-planet="mars"
+          aria-label="Marte"
+          type="button"
+        ></button>
+
+        <button
+          class="planet absolute left-[70%] top-[58%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-xl outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #fde68a, #f59e0b 45%, #7c2d12 80%);"
+          data-planet="jupiter"
+          aria-label="Giove"
+          type="button"
+        ></button>
+
+        <button
+          class="planet absolute left-[82%] top-[40%] h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-xl outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background:
+            radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+            radial-gradient(circle at 50% 50%, #fbbf24, #a16207 70%, rgba(0,0,0,.65));
+          "
+          data-planet="saturn"
+          aria-label="Saturno"
+          type="button"
+        >
+          <!-- Saturn ring -->
+          <span
+            class="pointer-events-none absolute left-1/2 top-1/2 h-5 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[-18deg] rounded-full border border-white/25 bg-white/5"
+            aria-hidden="true"
+          ></span>
+        </button>
+
+        <button
+          class="planet absolute left-[64%] top-[28%] h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #67e8f9, #0ea5e9 65%, rgba(0,0,0,.65));"
+          data-planet="uranus"
+          aria-label="Urano"
+          type="button"
+        ></button>
+
+        <button
+          class="planet absolute left-[52%] top-[25%] h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg outline-none ring-white/30 transition hover:scale-110 focus:scale-110 focus:ring-2"
+          style="background: radial-gradient(circle at 30% 30%, #a78bfa, #1e40af 60%, rgba(0,0,0,.65));"
+          data-planet="neptune"
+          aria-label="Nettuno"
+          type="button"
+        ></button>
+      </div>
+    </div>
+
+    <!-- Inline JS for hover/focus interactions -->
+    <script>
+      const DATA = {
+        earth: {
+          planet: "Terra",
+          person: "Darren Watkins (IShowSpeed)",
+          tag: "🌍 speed mode",
+          img: "assets/faces/darren-watkins.jpg",
+          alt: "Darren Watkins"
+        },
+        mars: {
+          planet: "Marte",
+          person: "Elon Musk",
+          tag: "🚀 colonizzazione vibes",
+          img: "assets/faces/elon-musk.jpg",
+          alt: "Elon Musk"
+        },
+        mercury: {
+          planet: "Mercurio",
+          person: "Usain Bolt",
+          tag: "⚡ il più veloce",
+          img: "assets/faces/usain-bolt.jpg",
+          alt: "Usain Bolt"
+        },
+        venus: {
+          planet: "Venere",
+          person: "Lady Gaga",
+          tag: "✨ pop + caos elegante",
+          img: "assets/faces/lady-gaga.jpg",
+          alt: "Lady Gaga"
+        },
+        jupiter: {
+          planet: "Giove",
+          person: "Dwayne Johnson (The Rock)",
+          tag: "💪 gigante assoluto",
+          img: "assets/faces/the-rock.jpg",
+          alt: "Dwayne Johnson"
+        },
+        saturn: {
+          planet: "Saturno",
+          person: "Carl Sagan",
+          tag: "🪐 cosmic storytelling",
+          img: "assets/faces/carl-sagan.jpg",
+          alt: "Carl Sagan"
+        },
+        uranus: {
+          planet: "Urano",
+          person: "David Bowie",
+          tag: "👽 alien energy",
+          img: "assets/faces/david-bowie.jpg",
+          alt: "David Bowie"
+        },
+        neptune: {
+          planet: "Nettuno",
+          person: "Jason Momoa (Aquaman)",
+          tag: "🌊 deep space sea",
+          img: "assets/faces/jason-momoa.jpg",
+          alt: "Jason Momoa"
+        }
+      };
+
+      const panel = document.getElementById("planetPanel");
+      const face = document.getElementById("planetFace");
+      const planetName = document.getElementById("planetName");
+      const person = document.getElementById("planetPerson");
+      const tag = document.getElementById("planetTag");
+
+      function showPanel(key) {
+        const d = DATA[key];
+        if (!d) return;
+
+        planetName.textContent = d.planet;
+        person.textContent = d.person;
+        tag.textContent = d.tag;
+
+        face.src = d.img;
+        face.alt = d.alt;
+
+        panel.classList.remove("opacity-0", "translate-y-2");
+        panel.classList.add("opacity-100", "translate-y-0");
+        panel.setAttribute("aria-hidden", "false");
+      }
+
+      function hidePanel() {
+        panel.classList.add("opacity-0", "translate-y-2");
+        panel.classList.remove("opacity-100", "translate-y-0");
+        panel.setAttribute("aria-hidden", "true");
+      }
+
+      document.querySelectorAll(".planet").forEach((btn) => {
+        const key = btn.dataset.planet;
+
+        btn.addEventListener("mouseenter", () => showPanel(key));
+        btn.addEventListener("focus", () => showPanel(key));
+
+        btn.addEventListener("mouseleave", hidePanel);
+        btn.addEventListener("blur", hidePanel);
+
+        // Optional: click toggles (mobile-friendly)
+        btn.addEventListener("click", () => {
+          // If panel hidden -> show, else keep shown updating
+          showPanel(key);
+        });
+      });
+    </script>
+  </section>
+</main>
+<!-- Footer --> <footer class="border-t border-white/10 py-8"> <div class="mx-auto flex max-w-5xl flex-col gap-2 px-4 text-sm text-zinc-400 md:flex-row md:items-center md:justify-between"> <p>© <span id="year"></span> Learning Lab</p> <p class="text-zinc-500">Built with Tailwind CDN</p> </div> </footer> <script> document.getElementById("year").textContent = new Date().getFullYear(); </script> </body> </html>
+
 
