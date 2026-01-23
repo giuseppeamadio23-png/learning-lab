@@ -1,44 +1,60 @@
-<!-- about.html -->
 <!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>About • I Show Space</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
   </head>
 
-  <body class="m-0 min-h-screen bg-black text-white">
-    <header class="w-full">
-      <img
-       src="./img/serpente-banner.jpg"
-src="./img/loki-colpisce-shamrock-martello.jpg"
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+        <a href="../" class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10">🧪</span>
+          <span>spaceeeeeee</span>
+        </a>
 
-        class="w-full h-24 object-cover"
-        loading="eager"
-        decoding="async"
-        width="1600"
-        height="200"
-      />
+        <nav class="flex items-center gap-2 text-sm">
+          <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="../">Home</a>
+          <a class="rounded-lg bg-white px-3 py-2 text-zinc-900 hover:bg-zinc-200" href="./about.html">About</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="./contact.html">Contact</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="../docs/PERCORSO.md">Percorso</a>
+        </nav>
+      </div>
     </header>
 
-    <main class="relative min-h-[calc(100vh-6rem)]">
-      <img
-        src="./img/loki-colpisce-shamrock-martello.jpg"
-        alt="Loki colpisce Shamrock"
-        class="absolute inset-0 h-full w-full object-cover"
-        loading="eager"
-        decoding="async"
-        width="1920"
-        height="1080"
-      />
+    <!-- Main -->
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <h1 class="text-3xl font-bold tracking-tight">About</h1>
+      <p class="mt-2 max-w-2xl text-zinc-300">
+        Questo è il mio Learning Lab: mini-progetti, pubblicati online, uno dopo l’altro.
+      </p>
 
-      <div class="absolute inset-0 bg-black/10" aria-hidden="true"></div>
+      <section class="mt-8 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h2 class="text-lg font-semibold">Cosa sto imparando</h2>
+          <ul class="mt-3 list-inside list-disc space-y-1 text-sm text-zinc-300">
+            <li>Git + GitHub (versioni e pubblicazione)</li>
+            <li>GitHub Pages (sito online)</li>
+            <li>Tailwind (layout e design veloce)</li>
+            <li>Automazioni e strumenti CLI</li>
+          </ul>
+        </div>
 
-      <div class="relative z-10 p-6 max-w-4xl mx-auto text-center">
-        <h1 class="text-3xl md:text-5xl font-bold">About</h1>
-        <p class="mt-4 text-lg">Breve descrizione qui. Sostituisci con il tuo testo.</p>
-      </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h2 class="text-lg font-semibold">Regola del progetto</h2>
+          <p class="mt-2 text-sm text-zinc-300">
+            Io faccio. L’AI propone. Io correggo. Pubblico spesso.
+          </p>
+          <p class="mt-4 text-sm text-zinc-400">
+            Prossimo step: pagina Contact + mini-progetto web #2.
+          </p>
+        </div>
+      </section>
     </main>
   </body>
 </html>
+
+
