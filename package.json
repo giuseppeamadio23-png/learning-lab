@@ -1,0 +1,29 @@
+{
+  "name": "learning-lab",
+  "version": "1.0.0",
+  "description": "Mini-progetti per imparare programmazione, web, automazioni e AI.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giuseppeamadio23-png/learning-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/giuseppeamadio23-png/learning-lab/issues"
+  },
+  "homepage": "https://github.com/giuseppeamadio23-png/learning-lab#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
+  }
+}
