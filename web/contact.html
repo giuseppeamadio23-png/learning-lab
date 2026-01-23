@@ -29,70 +29,66 @@
     <main class="mx-auto max-w-5xl px-4 py-10">
       <h1 class="text-3xl font-bold tracking-tight">Contact</h1>
       <p class="mt-2 max-w-2xl text-zinc-300">
-        Qui mettiamo un contatto semplice. Per ora è un “placeholder” fatto bene.
+        Pagina contatti semplice e pulita. (Poi la rendiamo “vera”).
       </p>
 
       <section class="mt-8 grid gap-4 md:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <h2 class="text-lg font-semibold">Messaggio</h2>
-          <p class="mt-1 text-sm text-zinc-300">
-            Copia e incolla questa email (poi la sostituiamo con un form vero o un link).
+          <h2 class="text-lg font-semibold">Email</h2>
+          <p class="mt-2 text-sm text-zinc-300">
+            Usa questo pulsante per copiare l’email.
           </p>
 
           <div class="mt-4 rounded-xl border border-white/10 bg-zinc-950/60 p-4">
             <p class="text-sm text-zinc-200">
-              Email: <span class="font-mono">tuo-nome@example.com</span>
+              <span class="text-zinc-400">Email:</span>
+              <span id="email" class="font-mono">tuo-nome@example.com</span>
             </p>
+
             <button
-              id="copyEmail"
+              id="copyBtn"
               class="mt-3 rounded-lg bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-200"
               type="button"
             >
               Copia email
             </button>
-            <p id="copyMsg" class="mt-2 text-xs text-zinc-400"></p>
+
+            <p id="msg" class="mt-2 text-xs text-zinc-400"></p>
           </div>
         </div>
 
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h2 class="text-lg font-semibold">Link</h2>
-          <p class="mt-1 text-sm text-zinc-300">
-            Un posto per mettere i tuoi link quando vuoi (Instagram, GitHub, ecc).
+          <p class="mt-2 text-sm text-zinc-300">
+            Link utili (poi li personalizzi).
           </p>
 
-          <ul class="mt-4 space-y-2 text-sm">
-            <li>
-              <a class="rounded-lg px-2 py-1 text-zinc-200 hover:bg-white/10" href="https://github.com/giuseppeamadio23-png/learning-lab" target="_blank" rel="noreferrer">
-                GitHub repo →
-              </a>
-            </li>
-            <li>
-              <a class="rounded-lg px-2 py-1 text-zinc-200 hover:bg-white/10" href="../" target="_self">
-                Sito (home) →
-              </a>
-            </li>
-          </ul>
+          <div class="mt-4 space-y-2 text-sm">
+            <a class="inline-flex w-full rounded-lg px-3 py-2 hover:bg-white/10" href="https://github.com/giuseppeamadio23-png/learning-lab" target="_blank" rel="noreferrer">
+              GitHub repo →
+            </a>
+            <a class="inline-flex w-full rounded-lg px-3 py-2 hover:bg-white/10" href="../">
+              Home sito →
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Tiny JS: copy -->
     <script>
-      const btn = document.getElementById("copyEmail");
-      const msg = document.getElementById("copyMsg");
+      const btn = document.getElementById("copyBtn");
+      const email = document.getElementById("email");
+      const msg = document.getElementById("msg");
 
       btn.addEventListener("click", async () => {
-        const email = "tuo-nome@example.com";
         try {
-          await navigator.clipboard.writeText(email);
+          await navigator.clipboard.writeText(email.textContent.trim());
           msg.textContent = "Copiato ✅";
-        } catch (e) {
-          msg.textContent = "Non riesco a copiare (prova a selezionare e copiare a mano).";
+        } catch {
+          msg.textContent = "Copia non disponibile: seleziona e copia a mano.";
         }
         setTimeout(() => (msg.textContent = ""), 2000);
       });
     </script>
   </body>
 </html>
-
-
