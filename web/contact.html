@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact • I Show Space</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
+  </head>
+
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+        <a href="../" class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10">🧪</span>
+          <span>spaceeeeeee</span>
+        </a>
+
+        <nav class="flex items-center gap-2 text-sm">
+          <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="../">Home</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="./about.html">About</a>
+          <a class="rounded-lg bg-white px-3 py-2 text-zinc-900 hover:bg-zinc-200" href="./contact.html">Contact</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-white/10" href="../docs/PERCORSO.md">Percorso</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <h1 class="text-3xl font-bold tracking-tight">Contact</h1>
+      <p class="mt-2 max-w-2xl text-zinc-300">
+        Qui mettiamo un contatto semplice. Per ora è un “placeholder” fatto bene.
+      </p>
+
+      <section class="mt-8 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h2 class="text-lg font-semibold">Messaggio</h2>
+          <p class="mt-1 text-sm text-zinc-300">
+            Copia e incolla questa email (poi la sostituiamo con un form vero o un link).
+          </p>
+
+          <div class="mt-4 rounded-xl border border-white/10 bg-zinc-950/60 p-4">
+            <p class="text-sm text-zinc-200">
+              Email: <span class="font-mono">tuo-nome@example.com</span>
+            </p>
+            <button
+              id="copyEmail"
+              class="mt-3 rounded-lg bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-200"
+              type="button"
+            >
+              Copia email
+            </button>
+            <p id="copyMsg" class="mt-2 text-xs text-zinc-400"></p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h2 class="text-lg font-semibold">Link</h2>
+          <p class="mt-1 text-sm text-zinc-300">
+            Un posto per mettere i tuoi link quando vuoi (Instagram, GitHub, ecc).
+          </p>
+
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>
+              <a class="rounded-lg px-2 py-1 text-zinc-200 hover:bg-white/10" href="https://github.com/giuseppeamadio23-png/learning-lab" target="_blank" rel="noreferrer">
+                GitHub repo →
+              </a>
+            </li>
+            <li>
+              <a class="rounded-lg px-2 py-1 text-zinc-200 hover:bg-white/10" href="../" target="_self">
+                Sito (home) →
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Tiny JS: copy -->
+    <script>
+      const btn = document.getElementById("copyEmail");
+      const msg = document.getElementById("copyMsg");
+
+      btn.addEventListener("click", async () => {
+        const email = "tuo-nome@example.com";
+        try {
+          await navigator.clipboard.writeText(email);
+          msg.textContent = "Copiato ✅";
+        } catch (e) {
+          msg.textContent = "Non riesco a copiare (prova a selezionare e copiare a mano).";
+        }
+        setTimeout(() => (msg.textContent = ""), 2000);
+      });
+    </script>
+  </body>
+</html>
+
+
