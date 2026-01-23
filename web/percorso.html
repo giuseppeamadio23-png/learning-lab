@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percorso • I Show Space</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
+  </head>
+
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <div id="siteHeader"></div>
+
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <h1 class="text-3xl font-bold tracking-tight">Percorso</h1>
+      <p class="mt-2 max-w-2xl text-zinc-300">
+        Qui trovi il percorso del progetto in modo leggibile dal sito.
+      </p>
+
+      <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <h2 class="text-lg font-semibold">Documento sorgente</h2>
+        <p class="mt-2 text-sm text-zinc-300">
+          Il percorso completo è nel repository:
+        </p>
+
+        <a
+          class="mt-4 inline-flex rounded-lg bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-200"
+          href="../docs/PERCORSO.md"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Apri PERCORSO.md →
+        </a>
+      </div>
+    </main>
+
+    <script>
+      fetch("./_header.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("siteHeader").innerHTML = html;
+
+          const path = window.location.pathname;
+          const active = path.endsWith("/web/percorso.html")
+            ? "percorso"
+            : path.endsWith("/web/about.html")
+            ? "about"
+            : path.endsWith("/web/contact.html")
+            ? "contact"
+            : "home";
+
+          document.querySelectorAll("[data-nav]").forEach((a) => {
+            if (a.getAttribute("data-nav") === active) {
+              a.classList.add("bg-white", "text-zinc-900");
+              a.classList.remove("hover:bg-white/10");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
