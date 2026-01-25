@@ -15,7 +15,6 @@
       <p class="mt-2 max-w-2xl text-zinc-300">
         Questo è il mio Learning Lab: mini-progetti, pubblicati online, uno dopo l’altro.
       </p>
-
       <section class="mt-8 grid gap-4 md:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h2 class="text-lg font-semibold">Cosa sto imparando</h2>
@@ -40,10 +39,14 @@
     </main>
     <script>
   fetch("./_header.html")
-    .then(r => r.text())
-    .then(html => (document.getElementById("siteHeader").innerHTML = html));
+    .then((r) => {
+      if (!r.ok) throw new Error("Header non trovato: " + r.status);
+      return r.text();
+    })
+    .then((html) => (document.getElementById("siteHeader").innerHTML = html))
+    .catch((e) => console.error(e));
 </script>
-  </body>
+ </body>
 </html>
 
 
