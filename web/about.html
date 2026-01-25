@@ -38,7 +38,7 @@
       </section>
     </main>
     <script>
-  fetch("./_header.html")
+  fetch("./header.html")
     .then((r) => {
       if (!r.ok) throw new Error("Header non trovato: " + r.status);
       return r.text();
