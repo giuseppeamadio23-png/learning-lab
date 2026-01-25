@@ -65,7 +65,14 @@
     </main>
 
     <script>
-      // copia email
+      // Header shared (path assoluto: non sbaglia mai su Pages)
+      fetch("/learning-lab/web/_header.html")
+        .then((r) => r.text())
+        .then((html) => (document.getElementById("siteHeader").innerHTML = html));
+    </script>
+
+    <script>
+      // Copy email
       const btn = document.getElementById("copyBtn");
       const email = document.getElementById("email");
       const msg = document.getElementById("msg");
@@ -79,11 +86,6 @@
         }
         setTimeout(() => (msg.textContent = ""), 2000);
       });
-
-      // carica header condiviso
-      fetch("./_header.html")
-        .then((r) => r.text())
-        .then((html) => (document.getElementById("siteHeader").innerHTML = html));
     </script>
   </body>
 </html>
