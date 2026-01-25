@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab #2 • I Show Space</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
+  </head>
+
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <div id="siteHeader"></div>
+
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">Lab #2</h1>
+          <p class="mt-2 text-zinc-300">
+            Clicca un pianeta per “sbloccare” la scheda.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+          <div class="text-xs text-zinc-400">Sbloccati</div>
+          <div id="counter" class="text-2xl font-semibold">0/0</div>
+        </div>
+      </div>
+
+      <section class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" id="grid"></section>
+
+      <section class="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <h2 class="text-lg font-semibold">Scheda</h2>
+        <div id="panel" class="mt-3 text-sm text-zinc-300">
+          Seleziona un pianeta.
+        </div>
+      </section>
+    </main>
+
+    <script>
+      fetch("./header.html")
+        .then((r) => r.text())
+        .then((html) => (document.getElementById("siteHeader").innerHTML = html));
+    </script>
+
+    <script>
+      // QUI COSTRUIAMO IL MINI-PROGETTO (step 2)
+    </script>
+  </body>
+</html>
